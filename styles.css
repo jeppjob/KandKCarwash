@@ -72,13 +72,12 @@ video{
 
 .menu {
   position: relative;
+  background: #fff;
 }
 .nav-toggle {
   display: none;
 }
-.nav-toggle:checked ~ nav {
-  display: block;
-}
+
 .nav-toggle-label {
   position: absolute;
   top: 0;
@@ -86,6 +85,14 @@ video{
   display: flex;
   height: 100%;
   align-items: center;
+  background: #2980b9;
+}
+.nav-toggle-label span{
+  font-family: "Oswald", sans-serif;
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #fff;
+  padding: 1em;
 }
 .logo {
   margin: 0;
@@ -97,7 +104,16 @@ nav {
   background: #2980b9;
   width: 100%;
   position: absolute;
-  display: none;
+  transform: scale(1,0);
+  transform-origin: top;
+  transition: transform 500ms ease-in-out;
+}
+.nav-toggle:checked ~ nav {
+  transform: scale(1,1);
+}
+.nav-toggle:checked ~ nav a{
+  opacity: 1;
+  transition: opacity 400ms ease-in-out 350ms;
 }
 nav ul {
   margin: 0;
@@ -108,12 +124,14 @@ nav li {
   margin: 1em 0;
 }
 nav a {
-  color: #000;
+  color: #fff;
   text-decoration: none;
   font-family: "Oswald", sans-serif;
   font-weight: 700;
   font-size: 1.5em;
   text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 200ms ease-in-out;
 }
 
 .bg-image {
@@ -340,12 +358,15 @@ footer {
     grid-template-columns: minmax(20px, 100px) auto 1fr minmax(20px, 100px);
   }
   nav {
+    
     background: #fff;
     position: relative;
     grid-column: 3/4;
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    transform: none;
+    transition: none;
   }
   nav ul {
     display: flex;
@@ -353,12 +374,17 @@ footer {
   nav li {
     margin: 0;
     padding: 1.7em 1em;
+    transition: all 150ms ease-in-out;
   }
   nav li:hover {
+    
     background: #2980b9;
   }
   nav li:hover a {
     color: #fff;
+  }
+  nav a{
+    color: #000;
   }
 
   .logo {
