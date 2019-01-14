@@ -384,6 +384,7 @@ footer {
     color: #fff;
   }
   nav a{
+    opacity: 1;
     color: #000;
   }
 
